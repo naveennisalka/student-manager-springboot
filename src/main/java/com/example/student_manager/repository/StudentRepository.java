@@ -1,5 +1,11 @@
 package com.example.student_manager.repository;
 
-public interface StudentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.student_manager.model.Student;
+
+public interface StudentRepository extends JpaRepository<Student, Long> {
+    
+    boolean existsByEmail(String email); 
+    boolean existsByEmailAndIdNot(String email, Long id); 
 
 }
